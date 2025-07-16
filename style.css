@@ -1,0 +1,196 @@
+:root {
+    /* カラーテーマを再設定 */
+    --accent-color: #008B8B;          /* アクセントカラー (DarkCyan) */
+    --accent-color-hover: #006868;
+    --background-color: #FFFDF5;      /* 全体背景 (ごく薄い黄色/クリーム色) */
+    --text-color: #333333;
+    --title-color: #5a4641;           /* 落ち着いた茶色 */
+    
+    /* プログレスバー */
+    --progress-bar-bg: #E0E0E0;
+    
+    /* ボタン */
+    --show-meaning-btn-bg: #2c3e50;    /* 黒系 */
+    --show-meaning-btn-hover-bg: #1f2b38;
+    --show-meaning-btn-hover-text: #bdc3c7; /* ホバー時のテキスト色 (グレー) */
+    
+    --stop-btn-bg: #e74c3c;            /* 赤系 */
+    --stop-btn-hover-bg: #c0392b;      /* より黒に近い赤 */
+    
+    --retry-btn-bg: #8d6e63;           /* 汎用ボタン (茶色) */
+    --retry-btn-hover-bg: #795548;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--progress-bar-bg);
+    z-index: 1000;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--stop-btn-bg);
+}
+
+#app-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+#file-input-container {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 20px;
+}
+
+#file-input-container h1 {
+    margin-top: 0;
+    color: var(--title-color);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.file-label:hover {
+    background-color: var(--accent-color-hover);
+}
+
+#quiz-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#progress-counter {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 16px;
+    color: #888;
+}
+
+#word {
+    font-size: 2.6em;
+    font-weight: bold;
+    color: var(--title-color);
+    margin-bottom: 20px;
+}
+
+#meaning {
+    font-size: 16px;
+    color: #444;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    min-height: 24px;
+}
+
+#meaning.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+    min-width: 140px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* 個別ボタンスタイル */
+#show-meaning-button {
+    background-color: var(--show-meaning-btn-bg);
+}
+#show-meaning-button:hover {
+    background-color: var(--show-meaning-btn-hover-bg);
+    color: var(--show-meaning-btn-hover-text);
+}
+
+#stop-button {
+    background-color: var(--stop-btn-bg);
+}
+#stop-button:hover {
+    background-color: var(--stop-btn-hover-bg);
+}
+
+#retry-button {
+    background-color: var(--retry-btn-bg);
+}
+#retry-button:hover {
+    background-color: var(--retry-btn-hover-bg);
+}
+
+
+#result-container {
+    padding: 30px;
+    text-align: center;
+}
+
+#result-container h2 {
+    color: var(--title-color);
+}
+
+.hidden {
+    display: none;
+}

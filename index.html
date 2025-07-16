@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>単語クイズ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="progress-container" class="hidden">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="app-container">
+        <div id="file-input-container">
+            <h1>単語クイズ</h1>
+            <p>単語のJSONファイルを選択してクイズを開始してください。</p>
+            <label for="file-input" class="file-label">ファイルを選択</label>
+            <input type="file" id="file-input" accept=".json">
+        </div>
+
+        <div id="quiz-container" class="hidden">
+            <div id="progress-counter"></div>
+            <div id="word"></div>
+            <div id="meaning"></div>
+        </div>
+
+        <div id="controls" class="hidden">
+            <button id="show-meaning-button" class="btn">意味を表示</button>
+            <button id="stop-button" class="btn">ストップ</button>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <h2>お疲れ様でした！</h2>
+            <p>クイズはすべて終了しました。</p>
+            <button id="retry-button" class="btn">もう一度挑戦する</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
