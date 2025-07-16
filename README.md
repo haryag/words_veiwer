@@ -6,7 +6,8 @@
 
 「単語」と「意味」をキーとするJSONファイルのみ受け付けています。
 
-```json:words_sample.json
+▼ 例：words_sample.json
+```
 [
     {
         "単語": "apple",
