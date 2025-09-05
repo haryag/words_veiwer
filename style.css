@@ -1,28 +1,19 @@
 :root {
-    /* カラーテーマを再設定 */
-    --accent-color: #008B8B;          /* アクセントカラー (DarkCyan) */
+    --accent-color: #008B8B;
     --accent-color-hover: #006868;
-    --background-color: #FFFDF5;      /* 全体背景 (ごく薄い黄色/クリーム色) */
+    --background-color: #FFFDF5;
     --text-color: #333333;
-    --title-color: #5a4641;           /* 落ち着いた茶色 */
-    
-    /* プログレスバー */
+    --title-color: #5a4641;
+
     --progress-bar-bg: #E0E0E0;
-    
-    /* ボタン */
-    --show-meaning-btn-bg: #2c3e50;    /* 黒系 */
-    --show-meaning-btn-hover-bg: #1f2b38;
-    --show-meaning-btn-hover-text: #bdc3c7; /* ホバー時のテキスト色 (グレー) */
-    
-    --stop-btn-bg: #e74c3c;            /* 赤系 */
-    --stop-btn-hover-bg: #c0392b;      /* より黒に近い赤 */
-    
-    --retry-btn-bg: #8d6e63;           /* 汎用ボタン (茶色) */
-    --retry-btn-hover-bg: #795548;
+
+    --show-meaning-btn-bg: #2c3e50;
+    --stop-btn-bg: #e74c3c;
+    --retry-btn-bg: #8d6e63;
 }
 
 body {
-    font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    font-family: 'Noto Sans JP', 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
@@ -60,7 +51,6 @@ body {
 
 #file-input-container {
     background-color: transparent;
-    box-shadow: none;
     padding: 20px;
 }
 
@@ -74,23 +64,30 @@ input[type="file"] {
 }
 
 .file-label {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 2px;          
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
     font-weight: bold;
+    background-color: transparent;
+    color: var(--accent-color);
+    transition: background-color 0.3s, color 0.3s;
+    min-width: 140px;
+    display: inline-block;
+    text-align: center;
 }
 
-.file-label:hover {
-    background-color: var(--accent-color-hover);
+.file-label:hover,
+.file-label:focus {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 #quiz-container {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     min-height: 250px;
     display: flex;
@@ -111,7 +108,7 @@ input[type="file"] {
 #word {
     font-size: 2.6em;
     font-weight: bold;
-    color: var(--title-color);
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -137,60 +134,130 @@ input[type="file"] {
     flex-wrap: wrap;
 }
 
+/* 共通ボタンスタイル */
 .btn {
     padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    color: white;
-    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+    background-color: transparent;
+    color: inherit;
+    transition: all 0.3s ease;
     min-width: 140px;
 }
 
-.btn:active {
-    transform: scale(0.98);
-}
-
 .btn:disabled {
-    background-color: #aaa;
+    background-color: #aaa !important;
+    color: #fff !important;
+    border-color: #aaa !important;
     cursor: not-allowed;
 }
 
-/* 個別ボタンスタイル */
+/* 個別ボタン色 */
 #show-meaning-button {
-    background-color: var(--show-meaning-btn-bg);
+    border-color: var(--show-meaning-btn-bg);
+    color: var(--show-meaning-btn-bg);
 }
-#show-meaning-button:hover {
-    background-color: var(--show-meaning-btn-hover-bg);
-    color: var(--show-meaning-btn-hover-text);
+#show-meaning-button:hover,
+#show-meaning-button:focus {
+    background-color: var(--show-meaning-btn-bg);
+    color: white;
 }
 
 #stop-button {
-    background-color: var(--stop-btn-bg);
+    border-color: var(--stop-btn-bg);
+    color: var(--stop-btn-bg);
 }
-#stop-button:hover {
-    background-color: var(--stop-btn-hover-bg);
+#stop-button:hover,
+#stop-button:focus {
+    background-color: var(--stop-btn-bg);
+    color: white;
 }
 
 #retry-button {
+    border-color: var(--retry-btn-bg);
+    color: var(--retry-btn-bg);
+}
+#retry-button:hover,
+#retry-button:focus {
     background-color: var(--retry-btn-bg);
+    color: white;
 }
-#retry-button:hover {
-    background-color: var(--retry-btn-hover-bg);
-}
-
 
 #result-container {
     padding: 30px;
     text-align: center;
+    border-radius: 2px;
 }
 
 #result-container h2 {
     color: var(--title-color);
 }
 
+/* 星マーク */
+.star {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--accent-color);
+    transition: transform 0.2s;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+/* リザルト単語一覧（スクロールなし、全表示） */
+#result-words {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    padding: 10px;
+    max-height: none; /* スクロールせず全部見える */
+    overflow-y: visible;
+}
+
+.result-word {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    gap: 6px;
+}
+
+/* 星付き単語 */
+.result-word.starred {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    border-color: var(--accent-color-hover);
+}
+
+/* 星なし単語 */
+.result-word.unstarred {
+    background-color: white;
+    color: black;
+    border-color: #ccc;
+}
+
+/* 初期非表示 */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+/* スマホ対応 */
+@media (max-width: 480px) {
+    #word {
+        font-size: 24px;
+    }
 }
