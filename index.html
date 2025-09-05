@@ -8,11 +8,13 @@
 </head>
 <body>
 
+    <!-- プログレスバー -->
     <div id="progress-container" class="hidden">
         <div id="progress-bar"></div>
     </div>
 
     <div id="app-container">
+        <!-- ファイル入力画面 -->
         <div id="file-input-container">
             <h1>フラッシュ単語帳</h1>
             <p>単語のJSONファイルを選択してクイズを開始してください。</p>
@@ -20,20 +22,29 @@
             <input type="file" id="file-input" accept=".json">
         </div>
 
+        <!-- クイズカード -->
         <div id="quiz-container" class="hidden">
             <div id="progress-counter"></div>
+
+            <!-- 星マーク -->
+            <span id="favorite-star" class="star">☆</span>
+
             <div id="word"></div>
             <div id="meaning"></div>
         </div>
 
+        <!-- 操作ボタン -->
         <div id="controls" class="hidden">
             <button id="show-meaning-button" class="btn">意味を表示</button>
             <button id="stop-button" class="btn">ストップ</button>
         </div>
 
+        <!-- 結果画面 -->
         <div id="result-container" class="hidden">
             <h2>お疲れ様でした！</h2>
             <p>クイズはすべて終了しました。</p>
+            <!-- 出題単語一覧 -->
+            <div id="result-words"></div>
             <button id="retry-button" class="btn">もう一度挑戦する</button>
         </div>
     </div>
