@@ -209,7 +209,7 @@ input[type="file"] {
 }
 
 .star:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
 }
 
 /* リザルト単語一覧（スクロールなし、全表示） */
@@ -239,7 +239,6 @@ input[type="file"] {
 .result-word.starred {
     background-color: var(--accent-color);
     color: white;
-    font-weight: bold;
     border-color: var(--accent-color-hover);
 }
 
@@ -261,3 +260,4 @@ input[type="file"] {
         font-size: 24px;
     }
 }
+
